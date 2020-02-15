@@ -46,8 +46,17 @@ var App = {
     });
   },
 
-  //refresh: function()
+  refresh: function() { //STILL WORKING ON THIS ONE
+  //create new post array
+  var newPosts = []
+  //set a variable (allPosts) to the array of all elements on page
 
+  //set a variable (lastPost) to the 0th index of window.data
+  //find index of lastPost in the allPosts array
+  //set window.data to allPosts
+  //set variable newPosts to -> slice index 0 - indexOf lastPost
+  //prepend newPosts to #chats
+  },
 
   startSpinner: function () {
     App.$spinner.show();
