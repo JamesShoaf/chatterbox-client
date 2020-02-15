@@ -17,12 +17,21 @@ var App = {
 
   },
 
+  post: function (callback = () => { }) {
+    console.log('Posted!');
+    Parse.readAll((data) => {
+      // examine the response from the server request:
+      window.data = data;
+      return $('#chats').prepend(MessageView.render(data.results[0]));
+      callback();
+    });
+  },
+
   fetch: function (callback = () => { }) {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
       window.data = data;
-      //debugger;
       data.results.forEach((msg) => {
         if (!msg.username || !msg.text) {
           return; // $('#chats').append('<p style="color:red">Hacker Detected</p>');

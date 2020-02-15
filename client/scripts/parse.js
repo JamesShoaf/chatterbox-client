@@ -3,7 +3,7 @@ var Parse = {
   server: `http://parse.${window.CAMPUS}.hackreactor.com/chatterbox/classes/messages`,
 
   defSuccessCB: function (data) {
-    console.log('chatterbox: Message sent');
+    App.post();
   },
 
   defErrorCB: function (data) {
@@ -27,6 +27,7 @@ var Parse = {
       url: Parse.server,
       type: 'GET',
       data: {order: '-createdAt'},// order: '-createdAt' },
+     // {},
       contentType: 'application/json',
       success: successCB,
       error: errorCB || function(error) {

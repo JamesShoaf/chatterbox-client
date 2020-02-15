@@ -20,7 +20,6 @@ var FormView = {
     }
     console.log('this is the message', $('#message').val());
     console.log(Parse.create(dataObj));
-
     console.log('click!');
   },
 
