@@ -21,7 +21,10 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
-      $('#chats').append(`${data.results[0]}`);
+      window.data = data;
+      //debugger;
+      $('#chats').append(MessageView.render(data.results[0]));
+      console.log(data.results);
 
       callback();
     });
