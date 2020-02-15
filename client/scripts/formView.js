@@ -9,7 +9,17 @@ var FormView = {
   //POST /messages
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
-  //  event.preventDefault();
+    event.preventDefault();
+    var dataObj = {
+      objectId: "",
+      username: "anonymous",
+      roomname: "undefined",
+      text: $('#message').val(),
+      createdAt: "",
+      updatedAt: "",
+    }
+    console.log('this is the message', $('#message').val());
+    console.log(Parse.create(dataObj));
 
     console.log('click!');
   },
