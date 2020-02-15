@@ -15,15 +15,16 @@ var App = {
     App.startSpinner();
     App.fetch(App.stopSpinner);
 
+    //start auto-refresh function
   },
 
-  post: function (callback = () => { }) {
+  post: function () {
     console.log('Posted!');
     Parse.readAll((data) => {
       // examine the response from the server request:
       window.data = data;
-      return $('#chats').prepend(MessageView.render(data.results[0]));
-      callback();
+      document.getElementById('message').value = '';
+      $('#chats').prepend(MessageView.render(data.results[0]));
     });
   },
 
@@ -44,6 +45,8 @@ var App = {
       callback();
     });
   },
+
+  //refresh: function()
 
 
   startSpinner: function () {
