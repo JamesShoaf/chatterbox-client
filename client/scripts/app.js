@@ -23,7 +23,9 @@ var App = {
       console.log(data);
       window.data = data;
       //debugger;
-      $('#chats').append(MessageView.render(data.results[0]));
+      data.results.forEach((msg) =>
+        $('#chats').append(MessageView.render(msg))
+      );
       console.log(data.results);
 
       callback();
