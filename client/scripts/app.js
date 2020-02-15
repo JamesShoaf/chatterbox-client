@@ -25,7 +25,7 @@ var App = {
       //debugger;
       data.results.forEach((msg) => {
         if (!msg.username || !msg.text) {
-          return $('#chats').append('<p style="color:red">Hacker Detected</p>');
+          return; // $('#chats').append('<p style="color:red">Hacker Detected</p>');
         }
         return $('#chats').append(MessageView.render(msg));
       });

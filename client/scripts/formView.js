@@ -6,6 +6,7 @@ var FormView = {
     FormView.$form.on('submit', FormView.handleSubmit);
   },
 
+  //POST /messages
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
   //  event.preventDefault();
