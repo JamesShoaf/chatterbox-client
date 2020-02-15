@@ -4,7 +4,7 @@ var App = {
 
   username: 'anonymous',
 
-  initialize: function() {
+  initialize: function () {
     App.username = window.location.search.substr(10);
 
     FormView.initialize();
@@ -17,27 +17,32 @@ var App = {
 
   },
 
-  fetch: function(callback = ()=>{}) {
+  fetch: function (callback = () => { }) {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
       window.data = data;
       //debugger;
-      data.results.forEach((msg) =>
-        $('#chats').append(MessageView.render(msg))
-      );
+      data.results.forEach((msg) => {
+        if (!msg.username || !msg.text) {
+          return $('#chats').append('<p style="color:red">Hacker Detected</p>');
+        }
+        return $('#chats').append(MessageView.render(msg));
+      });
+
       console.log(data.results);
 
       callback();
     });
   },
 
-  startSpinner: function() {
+
+  startSpinner: function () {
     App.$spinner.show();
     FormView.setStatus(true);
   },
 
-  stopSpinner: function() {
+  stopSpinner: function () {
     App.$spinner.fadeOut('fast');
     FormView.setStatus(false);
   }
